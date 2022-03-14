@@ -9,7 +9,6 @@ const useUnity = ({ url = "" }) => {
       return;
     }
 
-    const buildUrl = "Build";
     const loaderUrl = url + ".loader.js";
     const config = {
       dataUrl: url + ".data",
