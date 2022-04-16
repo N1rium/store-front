@@ -1,5 +1,5 @@
 // Quick lookup table where keys are metamask ids that returns a car collection
-export default {
+export const carCollection = {
   blomman: [
     {
       nft_id: "some_random_nft_id",
@@ -18,4 +18,46 @@ export default {
       frame: "expert",
     },
   ],
+};
+
+const getCars = () =>
+  Object.keys(carCollection).reduce(
+    (acc, user) => [...acc, ...carCollection[user]],
+    []
+  );
+
+const getCar = (carId) => getCars().find((c) => c.nft_id == carId);
+
+const getRandomCars = (amount = 1) => {
+  const cars = getCars();
+  const res = [];
+  for (let i = 0; i < amount; i++) {
+    res.push(cars[Math.floor(Math.random() * cars.length)]);
+  }
+  return res;
+};
+
+export const getRace = (carId) => {
+  const car = getCar(carId);
+
+  if (!car) {
+    return null;
+  }
+
+  const opponents = getRandomCars(4);
+  const cars = shuffleArray([car, ...opponents]);
+
+  return cars.map((c, i) => ({
+    ...c,
+    rank: i + 1,
+  }));
+};
+
+const shuffleArray = (input) => {
+  const array = [...input];
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 };
