@@ -2,38 +2,45 @@
 const nextConfig = {
   reactStrictMode: true,
   async headers() {
+    const gzipped = (path = "") => {
+      return [
+        {
+          source: `${path}.framework.js.gz`,
+          headers: [
+            {
+              key: "Content-Encoding",
+              value: "gzip",
+            },
+          ],
+        },
+        {
+          source: `${path}.wasm.gz`,
+          headers: [
+            {
+              key: "Content-Type",
+              value: "application/wasm",
+            },
+            {
+              key: "Content-Encoding",
+              value: "gzip",
+            },
+          ],
+        },
+        {
+          source: `${path}.data.gz`,
+          headers: [
+            {
+              key: "Content-Encoding",
+              value: "gzip",
+            },
+          ],
+        },
+      ];
+    };
+
     return [
-      {
-        source: "/race-simulation/Build/race-simulation.framework.js.gz",
-        headers: [
-          {
-            key: "Content-Encoding",
-            value: "gzip",
-          },
-        ],
-      },
-      {
-        source: "/race-simulation/Build/race-simulation.wasm.gz",
-        headers: [
-          {
-            key: "Content-Type",
-            value: "application/wasm",
-          },
-          {
-            key: "Content-Encoding",
-            value: "gzip",
-          },
-        ],
-      },
-      {
-        source: "/race-simulation/Build/race-simulation.data.gz",
-        headers: [
-          {
-            key: "Content-Encoding",
-            value: "gzip",
-          },
-        ],
-      },
+      ...gzipped("/garage/Build/garage"),
+      ...gzipped("/race-simulation/Build/race-simulation"),
     ];
   },
 };

@@ -1,6 +1,6 @@
 // Quick lookup table where keys are metamask ids that returns a car collection
 export const carCollection = {
-  blomman: [
+  "0x21F44b4C7D694789212e6ED5dF2b8DBB96ce2eCa": [
     {
       nft_id: "some_random_nft_id",
       fuel: 100,
@@ -12,8 +12,8 @@ export const carCollection = {
     {
       nft_id: "another_damn_nft_id",
       fuel: 50,
-      body: "hammerhead",
-      paintJob: "yellow",
+      body: "farmer",
+      paintJob: "cubes",
       rim: "plate",
       frame: "expert",
     },

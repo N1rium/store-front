@@ -11,9 +11,9 @@ const useUnity = ({ url = "" }) => {
 
     const loaderUrl = url + ".loader.js";
     const config = {
-      dataUrl: url + ".data",
-      frameworkUrl: url + ".framework.js",
-      codeUrl: url + ".wasm",
+      dataUrl: url + ".data.gz",
+      frameworkUrl: url + ".framework.js.gz",
+      codeUrl: url + ".wasm.gz",
       streamingAssetsUrl: "StreamingAssets",
       companyName: "DefaultCompany",
       productName: "StoreFront",
