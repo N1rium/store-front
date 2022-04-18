@@ -1,6 +1,5 @@
 import React, { useRef, useEffect } from "react";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import useUnity from "../hooks/use-unity";
 
 export default function Home() {
@@ -16,13 +15,13 @@ export default function Home() {
   }, [canvasRef]);
 
   return (
-    <div className={styles.container}>
+    <div>
       <Head>
         <title>Storefront</title>
         <meta name="description" content="Storefront" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <canvas className={styles.canvas} ref={canvasRef}></canvas>
+      <canvas ref={canvasRef}></canvas>
     </div>
   );
 }
