@@ -1,6 +1,5 @@
 import React, { useRef, useEffect, useState } from "react";
 import Head from "next/head";
-import styles from "../styles/Home.module.css";
 import useUnity from "../hooks/use-unity";
 import useEthereum from "../hooks/use-ethereum";
 import Web3 from "web3";
