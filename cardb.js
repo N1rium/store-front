@@ -17,6 +17,14 @@ export const carCollection = {
       rim: "plate",
       frame: "expert",
     },
+    {
+      nft_id: "another_damn_nft_id",
+      fuel: 50,
+      body: "hurricane",
+      paintJob: "zebra",
+      rim: "razor",
+      frame: "master",
+    },
   ],
 };
 
