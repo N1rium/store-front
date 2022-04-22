@@ -23,6 +23,7 @@ export default function Home() {
         id="unity-canvas"
         className="w-full h-full"
         ref={canvasRef}
+        style={{ position: "absolute", top: "0", left: "0" }}
       ></canvas>
     </div>
   );
