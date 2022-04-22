@@ -71,6 +71,7 @@ export default function Home() {
         </div>
       )}
       <canvas
+        id="unity-canvas"
         className={`absolute w-full h-full ${
           isLoggedIn ? "pointer-events-auto" : "pointer-events-none"
         }`}
