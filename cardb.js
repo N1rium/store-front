@@ -129,15 +129,15 @@ export const carCollection = {
   ],
 };
 
-const getCars = () =>
+export const getCars = () =>
   Object.keys(carCollection).reduce(
     (acc, user) => [...acc, ...carCollection[user]],
     []
   );
 
-const getCar = (carId) => getCars().find((c) => c.nft_id == carId);
+export const getCar = (carId) => getCars().find((c) => c.nft_id == carId);
 
-const getRandomCars = (amount = 1) => {
+export const getRandomCars = (amount = 1) => {
   const res = [];
   for (let i = 0; i < amount; i++) {
     res.push(getRandomCar());
@@ -145,7 +145,7 @@ const getRandomCars = (amount = 1) => {
   return res;
 };
 
-const getRandomCar = () => ({
+export const getRandomCar = () => ({
   body: bodies[Math.floor(Math.random() * bodies.length)],
   paintJob: paintJobs[Math.floor(Math.random() * paintJobs.length)],
   rim: rims[Math.floor(Math.random() * rims.length)],
