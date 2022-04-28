@@ -60,20 +60,20 @@ export const rims = [
 export const carCollection = {
   "0x21F44b4C7D694789212e6ED5dF2b8DBB96ce2eCa": [
     {
+      nft_id: "1",
+      fuel: 75,
+      body: "saturn",
+      paintJob: "camo_beige",
+      rim: "blade",
+      frame: "novice",
+    },
+    {
       nft_id: "2",
       fuel: 29,
       body: "farmer",
       paintJob: "cubes",
       rim: "plate",
       frame: "expert",
-    },
-    {
-      nft_id: "1",
-      fuel: 100,
-      body: "saturn",
-      paintJob: "camo_beige",
-      rim: "blade",
-      frame: "novice",
     },
     {
       nft_id: "3",

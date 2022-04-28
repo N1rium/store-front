@@ -4,11 +4,12 @@ import useUnity from "../hooks/use-unity";
 
 export default function Home() {
   const canvasRef = useRef(null);
-  const [init] = useUnity({ url: "/garage/Build/garage" });
+  const [init, { loading }] = useUnity({ url: "/garage/Build/garage" });
 
   useEffect(() => {
     if (canvasRef) {
       init(canvasRef.current);
+      document.getElementById("unity-canvas").focus();
     }
   }, [canvasRef]);
 
@@ -17,8 +18,16 @@ export default function Home() {
       <Head>
         <title>BitRacing Demo</title>
         <meta name="description" content="BitRacing Demo" />
+        <meta content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div id="demo-loader" className={loading === true ? "loading" : "loaded"}>
+        <div>
+          <div></div>
+          <div></div>
+        </div>
+        <img src="/img/bitracing.png" />
+      </div>
       <canvas
         id="unity-canvas"
         className="w-full h-full"
