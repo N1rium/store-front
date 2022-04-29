@@ -69,7 +69,7 @@ export const carCollection = {
     },
     {
       nft_id: "2",
-      fuel: 29,
+      fuel: 35,
       body: "farmer",
       paintJob: "cubes",
       rim: "plate",
