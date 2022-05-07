@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 import Head from "next/head";
+import Script from "next/script";
 import useUnity from "../hooks/use-unity";
 import useEthereum from "../hooks/use-ethereum";
 import Web3 from "web3";
@@ -11,20 +12,18 @@ export default function Home() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [errorMode, setErrorMode] = useState(false);
 
-  const [signIn, accounts] = useEthereum({
-    onAccountsChanged: (data) => {
-      if (data.length) {
-        onSignedIn();
-      }
+  const [signIn, account] = useEthereum({
+    onAccountChanged: (data) => {
+      window.location.reload();
+    },
+    onSignIn: (data) => {
+      onSignedIn();
     },
   });
 
   useEffect(() => {
     if (window.ethereum && ethereum.isMetaMask) {
       window.web3 = new Web3(window.ethereum);
-      if (web3.currentProvider.selectedAddress) {
-        onSignedIn();
-      }
     } else {
       setErrorMode(true);
     }
@@ -43,6 +42,7 @@ export default function Home() {
           <meta name="description" content="Storefront" />
           <link rel="icon" href="/favicon.ico" />
         </Head>
+
         <div className="text-center">
           <div className="text-white font-bold text-2xl mb-4">
             Metamask required!
@@ -60,8 +60,8 @@ export default function Home() {
   return (
     <div className="relative flex justify-center items-center w-full h-full bg-slate-800">
       <Head>
-        <title>Storefront</title>
-        <meta name="description" content="Storefront" />
+        <title>BitRacing</title>
+        <meta name="description" content="Race with your BitRacing car" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {!isLoggedIn && (
