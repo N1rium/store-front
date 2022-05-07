@@ -1,9 +1,11 @@
-import { Html, Head, Script, Main, NextScript } from "next/document";
+import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
     <Html>
-      <Head>
+      <Head></Head>
+      <body>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-X2P5QC1KB2"
           strategy="afterInteractive"
@@ -17,8 +19,6 @@ export default function Document() {
           gtag('config', 'G-X2P5QC1KB2');
         `}
         </Script>
-      </Head>
-      <body>
         <Main />
         <NextScript />
       </body>
