@@ -15,6 +15,8 @@ export default function Home() {
     }
   }, [canvasRef]);
 
+  console.log(progress);
+
   return (
     <div className="w-full h-full">
       <Head>
@@ -29,7 +31,11 @@ export default function Home() {
           <div></div>
         </div>
         <img src="/img/bitracing.png" />
-        <div className="text-white">{progress}%</div>
+        {progress != 1 && (
+          <div className="text-white text-4xl absolute top-4 left-4">
+            {(progress * 100).toFixed(2)}%
+          </div>
+        )}
       </div>
       <canvas
         id="unity-canvas"

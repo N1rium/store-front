@@ -36,7 +36,7 @@ const useUnity = ({ url = "" }) => {
           /*fullscreenButton.onclick = () => {
               unityInstance.SetFullscreen(1);
             };*/
-          setProgress(100);
+          setProgress(1);
           setUnity(unityInstance);
           setLoading(false);
         })
@@ -47,7 +47,7 @@ const useUnity = ({ url = "" }) => {
     document.body.appendChild(script);
   };
 
-  return [init, { ...unity, loading }];
+  return [init, { ...unity, loading, progress }];
 };
 
 export default useUnity;
