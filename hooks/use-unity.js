@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 const useUnity = ({ url = "" }) => {
   const [unity, setUnity] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const init = (canvas = null) => {
     if (!canvas) {
@@ -27,6 +28,7 @@ const useUnity = ({ url = "" }) => {
     script.onload = () => {
       createUnityInstance(canvas, config, (progress) => {
         setLoading(true);
+        setProgress(progress);
         //progressBarFull.style.width = 100 * progress + "%";
       })
         .then((unityInstance) => {
@@ -34,6 +36,7 @@ const useUnity = ({ url = "" }) => {
           /*fullscreenButton.onclick = () => {
               unityInstance.SetFullscreen(1);
             };*/
+          setProgress(100);
           setUnity(unityInstance);
           setLoading(false);
         })

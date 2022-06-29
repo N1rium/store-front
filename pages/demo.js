@@ -4,7 +4,9 @@ import useUnity from "../hooks/use-unity";
 
 export default function Home() {
   const canvasRef = useRef(null);
-  const [init, { loading }] = useUnity({ url: "/garage/Build/garage" });
+  const [init, { loading, progress }] = useUnity({
+    url: "/garage/Build/garage",
+  });
 
   useEffect(() => {
     if (canvasRef) {
@@ -27,6 +29,7 @@ export default function Home() {
           <div></div>
         </div>
         <img src="/img/bitracing.png" />
+        <div className="text-white">{progress}%</div>
       </div>
       <canvas
         id="unity-canvas"
