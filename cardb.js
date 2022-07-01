@@ -58,7 +58,7 @@ export const rims = [
 
 // Quick lookup table where keys are metamask ids that returns a car collection
 export const carCollection = {
-  "0x21F44b4C7D694789212e6ED5dF2b8DBB96ce2eCa": [
+  "0x21f44b4c7d694789212e6ed5df2b8dbb96ce2eca": [
     {
       nft_id: "1",
       fuel: 75,
