@@ -15,8 +15,6 @@ export default function Home() {
     }
   }, [canvasRef]);
 
-  console.log(progress);
-
   return (
     <div className="w-full h-full">
       <Head>
