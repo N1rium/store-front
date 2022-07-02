@@ -83,6 +83,14 @@ export const carCollection = {
       rim: "razor",
       frame: "master",
     },
+    {
+      nft_id: "bat",
+      fuel: 50,
+      body: "bat",
+      paintJob: "bat",
+      rim: "bat",
+      frame: "bat",
+    },
   ],
   test: [
     {
