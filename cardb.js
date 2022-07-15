@@ -42,7 +42,7 @@ export const paintJobs = [
   "cubes",
   "hippie",
   "turtle",
-  "yellow_stain",
+  "purple_stain",
 ];
 
 export const rims = [
