@@ -56,6 +56,8 @@ export const rims = [
   "razor",
 ];
 
+export const frames = ["novice", "veteran", "expert", "master"];
+
 // Quick lookup table where keys are metamask ids that returns a car collection
 export const carCollection = {
   "0x21f44b4c7d694789212e6ed5df2b8dbb96ce2eca": [
@@ -157,7 +159,7 @@ export const getRandomCar = () => ({
   body: bodies[Math.floor(Math.random() * bodies.length)],
   paintJob: paintJobs[Math.floor(Math.random() * paintJobs.length)],
   rim: rims[Math.floor(Math.random() * rims.length)],
-  frame: "novice",
+  frame: frames[Math.floor(Math.random() * frames.length)],
 });
 
 export const getRace = (carId) => {
