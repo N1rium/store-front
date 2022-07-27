@@ -38,7 +38,10 @@ const nextConfig = {
       ];
     };
 
-    return [...gzipped("/garage/Build/garage")];
+    return [
+      ...gzipped("/garage/Build/garage"),
+      ...gzipped("/transparent/Build/transparent"),
+    ];
   },
 };
 
