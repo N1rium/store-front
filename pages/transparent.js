@@ -10,7 +10,7 @@ export default function Home() {
 
   useEffect(() => {
     if (canvasRef) {
-      init(canvasRef.current);
+      init(canvasRef.current, ".gz");
       document.getElementById("unity-canvas").focus();
     }
   }, [canvasRef]);

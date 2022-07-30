@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 
 const useUnity = ({ url = "" }) => {
   const [unity, setUnity] = useState(null);
   const [loading, setLoading] = useState(false);
   const [progress, setProgress] = useState(0);
 
-  const init = (canvas = null) => {
+  const init = (canvas = null, gzipSuffix = "") => {
     if (!canvas) {
       console.warn("Please specify a canvas reference");
       return;
@@ -13,14 +13,13 @@ const useUnity = ({ url = "" }) => {
 
     const loaderUrl = url + ".loader.js";
     const config = {
-      dataUrl: url + ".data.gz",
-      frameworkUrl: url + ".framework.js.gz",
-      codeUrl: url + ".wasm.gz",
+      dataUrl: url + ".data" + gzipSuffix,
+      frameworkUrl: url + ".framework.js" + gzipSuffix,
+      codeUrl: url + ".wasm" + gzipSuffix,
       streamingAssetsUrl: "StreamingAssets",
       companyName: "DefaultCompany",
       productName: "StoreFront",
       productVersion: "0.1",
-      //showBanner: unityShowBanner,
     };
 
     var script = document.createElement("script");
@@ -29,13 +28,8 @@ const useUnity = ({ url = "" }) => {
       createUnityInstance(canvas, config, (progress) => {
         setLoading(true);
         setProgress(progress);
-        //progressBarFull.style.width = 100 * progress + "%";
       })
         .then((unityInstance) => {
-          //loadingBar.style.display = "none";
-          /*fullscreenButton.onclick = () => {
-              unityInstance.SetFullscreen(1);
-            };*/
           setProgress(1);
           setUnity(unityInstance);
           setLoading(false);
