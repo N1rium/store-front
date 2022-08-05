@@ -2,9 +2,11 @@ import React, { useRef, useEffect } from "react";
 import Head from "next/head";
 import useUnity from "../hooks/use-unity";
 
+// Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
+
 export default function Home() {
   const canvasRef = useRef(null);
-  const [init, { loading, progress }] = useUnity({
+  const [init] = useUnity({
     url: "/transparent/Build/transparent",
   });
 
@@ -31,18 +33,6 @@ export default function Home() {
           }
         `}
       </style>
-      <div id="demo-loader" className={loading === true ? "loading" : "loaded"}>
-        <div>
-          <div></div>
-          <div></div>
-        </div>
-        <img src="/img/bitracing.png" />
-        {progress != 1 && (
-          <div className="text-white text-4xl absolute top-4 left-4">
-            {(progress * 100).toFixed(2)}%
-          </div>
-        )}
-      </div>
       <canvas
         id="unity-canvas"
         className="w-full h-full"
