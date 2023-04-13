@@ -7,7 +7,7 @@ import useUnity from "../hooks/use-unity";
 export default function Home() {
   const canvasRef = useRef(null);
   const [init] = useUnity({
-    url: "/transparent/Build/transparent",
+    url: "/etherraid/Build/bnbclash",
   });
 
   useEffect(() => {

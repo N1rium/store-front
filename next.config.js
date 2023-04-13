@@ -41,6 +41,7 @@ const nextConfig = {
     return [
       ...gzipped("/transparent/Build/transparent"),
       ...gzipped("/reward/Build/reward"),
+      ...gzipped("/etherraid/Build/bnbclash"),
     ];
   },
 };
