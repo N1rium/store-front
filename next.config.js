@@ -38,10 +38,47 @@ const nextConfig = {
       ];
     };
 
+    const brotli = (path = "") => {
+      return [
+        {
+          source: `${path}.framework.js.br`,
+          headers: [
+            {
+              key: "Content-Encoding",
+              value: "br",
+            },
+          ],
+        },
+        {
+          source: `${path}.wasm.br`,
+          headers: [
+            {
+              key: "Content-Type",
+              value: "application/wasm",
+            },
+            {
+              key: "Content-Encoding",
+              value: "br",
+            },
+          ],
+        },
+        {
+          source: `${path}.data.br`,
+          headers: [
+            {
+              key: "Content-Encoding",
+              value: "br",
+            },
+          ],
+        },
+      ];
+    };
+
     return [
       ...gzipped("/transparent/Build/transparent"),
       ...gzipped("/reward/Build/reward"),
       ...gzipped("/etherraid/Build/bnbclash"),
+      ...brotli("/etherraid/Build/brotli"),
     ];
   },
 };
